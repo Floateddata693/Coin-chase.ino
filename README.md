@@ -3,7 +3,6 @@ a game i made for engr 103
 the game ruins in arduino IDE and is specifically made for the Circuit Playground Express
 serial monitor is required
 
-::seziure warning::::seziure warning::::seziure warning::::seziure warning::::seziure warning::::seziure warning::::seziure warning::::seziure warning::
 
 rules:
 -you must avoid the enemy/red dots as you control your character back and forth around the loop
