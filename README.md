@@ -1,29 +1,47 @@
 # Coin-chase.ino
-a game i made for engr 103 
-the game ruins in arduino IDE and is specifically made for the Circuit Playground Express
+A game I made for engr 103. 
+The game ruins in arduino IDE and is specifically made for the Circuit Playground Express,
 serial monitor is required
+/n
 
+Goal:
 
-rules:
--you must avoid the enemy/red dots as you control your character back and forth around the loop
--coins give extra score when hit
--you have 1 life to survive as long as possible
--difficulty increases every minute
-
+-To achieve the highest score, this can be done by surviving levels and collecting coins
 
 
 
-inputs:
--tilt the device side to side towards the buttons
--slide serves as the on/off button
 
 
-outputs:
--level ups will blink green
--enemies are red
--coins are gold
--the player is blue
--upon death a tone will sound
+Rules:
+-You must avoid the enemy/red dots as you control your character back and forth around the loop
+
+-Coins give extra score when hit
+
+-You have 1 life to survive as long as possible
+
+-Difficulty increases every minute
+
+
+
+
+Inputs:
+
+-Tilt the device side to side towards the buttons
+
+-Slide serves as the on/off button(will reset the level if switched off)
+
+
+Outputs:
+
+-Level ups will blink green
+
+-Enemies are red
+
+-Coins are gold
+
+-The player is blue
+
+-Upon death a tone will sound
 
 
 
