@@ -13,6 +13,7 @@ Goal:
 
 
 Rules:
+
 -You must avoid the enemy/red dots as you control your character back and forth around the loop
 
 -Coins give extra score when hit
