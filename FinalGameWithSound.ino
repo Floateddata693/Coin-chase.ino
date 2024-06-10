@@ -3,19 +3,19 @@
 
 AsyncDelay delay_1m;
 
-bool slide = 0;
-int i = 0;
-int enemypos = -1;
-int coinpos = -1;
-int coins = 0;
-int enemynum = 0;
-bool alive = 0;
-int score = 0;
-int loops = 0;
-bool death = 0;
-int level = 0;
-int loopthreshM = 1;
-int loopthreshC = 1;
+bool slide = 0;    //keeps track of if the on off switch has been activated
+int i = 0;         //the value used for the player's position
+int enemypos = -1;  //the value used for the enemy's position
+int coinpos = -1;  //the value used for the coins' position
+int coins = 0;    //the number of coins
+int enemynum = 0;  //the number of enemies
+bool alive = 0;   //is the player alive?
+int score = 0;    //the score tally
+int loops = 0;    //the number of times the code has looped per level (almost like the refresh rate of a monitor)
+bool death = 0;  //tells between general pauses and stops vs death (determines why the player might not be alive)
+int level = 0;   //the difficulty and level select(can edit here for fun! WILL PROBABLY BREAK THE GAME IF ABOVE 20)
+int loopthreshM = 1;  //multiplier to allow for repetetive spawning per level
+int loopthreshC = 1;  //once again,multiplier to allow for repetetive spawning per level(it is hard to explain)
 
 
 
