@@ -26,7 +26,7 @@ void setup() {
   while (!Serial) {
     delay(10);
   }
-  //cycle = 0;
+ 
 
   delay_1m.start(60000, AsyncDelay::MILLIS);
 
@@ -58,8 +58,12 @@ void setup() {
 
 
 void loop() {
+  //while slide is on for the game
   if (slide == 1) {
+    //whilst the character is alive
     while (alive == 1) {
+      //when the delay expires (that means when you have survived or started a level)
+      //this is the code that sets up score and the next level's enemy and coin generation
       if (delay_1m.isExpired()) {
         score += (10 * level);
         level += 1;
@@ -85,10 +89,13 @@ void loop() {
         delay(1000);
         CircuitPlayground.clearPixels();
       }
+      
+      //update player location
+      
       CircuitPlayground.setPixelColor(i, 0, 0, 0);
       i += 1;
 
-
+      //controls and movement
       if (CircuitPlayground.motionX() < .10) {
         i -= 2;
       }
@@ -98,20 +105,22 @@ void loop() {
       if (i < 0) {
         i = 9;
       }
+      //player pixel will have a different hue based on time progressed(loops is the number of runs in the loop)
       CircuitPlayground.setPixelColor(i, 0, 128, 255 - loops);
-
+      //enemy "hitbox"
       if (i == enemypos) {
         alive = 0;
         death = 1;
       }
-
+      //coin "hitbox"  (i is the player position)
       if (i == coinpos) {
         score += 3;
         coinpos = (-1);
         CircuitPlayground.playTone(500, 50);
       CircuitPlayground.playTone(700, 50);
       }
-
+      
+    //below here is the spawning code for enemies and coins
       if (loops == (round(600 / enemynum + random(-9, 10)) * loopthreshM)){
         CircuitPlayground.setPixelColor(enemypos, 0, 0, 0);
       enemypos = random(0, 9);
@@ -124,7 +133,7 @@ void loop() {
       }
 
 
-
+      //more spawning
       if (loops == (round(600 / coins + random(-9, 10)) * loopthreshC))
       {  CircuitPlayground.setPixelColor(coinpos, 0, 0, 0);
 
@@ -136,16 +145,19 @@ void loop() {
       }
       
 
-
+     //once all loops of spawning and testing have occured, it will update the pixels to match the hitboxes it settled on
       CircuitPlayground.setPixelColor(coinpos, 128, 156, 0);
       CircuitPlayground.setPixelColor(enemypos, 255, 0, 0);
 
+      //the check for on off switch and general delay between movements
       delay(250 - (level * 5));
       loops += 1;
       if (slide == 0) {
         break;
       }
     }
+
+    //if you die, do ____
     if (death == 1) {
       CircuitPlayground.playTone(300, 1000);
       CircuitPlayground.playTone(250, 250);
@@ -153,7 +165,7 @@ void loop() {
        CircuitPlayground.playTone(400, 500);
     
 
-      
+      //resets for death
       Serial.print("score=");
       Serial.println(score);
       slide = 0;
@@ -174,7 +186,7 @@ void loop() {
 
 
 
-
+ //changes bool from slide input
   void SlideS() {
     delay(20);
     slide = !slide;
