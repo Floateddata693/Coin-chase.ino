@@ -2,7 +2,7 @@
 A game I made for engr 103. 
 The game ruins in arduino IDE and is specifically made for the Circuit Playground Express,
 serial monitor is required
-/n
+
 
 Goal:
 
